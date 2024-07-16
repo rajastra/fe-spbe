@@ -2,7 +2,14 @@
   position: relative;
   background: url('../assets/img/mainfooter.png') no-repeat center center/cover;
   margin-top: 64px;
-  color: white !important;
+}
+
+.footer-container h6 {
+  color: white;
+}
+
+.footer-container p {
+  color: white;
 }
 
 .footer-container::before {
@@ -31,7 +38,7 @@
 
 .footer-brands i {
   font-size: 1.2rem;
-  color: white;
+  color: white !important;
 }
 
 .footer-contact-box {
@@ -56,4 +63,14 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.footer-contact-container i {
+  font-size: 1.2rem;
+  color: white !important;
+}
+
+.footer-container hr {
+  border: 1px solid white;
+  margin-top: 16px;
 }

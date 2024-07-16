@@ -10,7 +10,7 @@ function Footer() {
               <div className='row mt-3'>
                 <div className='col-12 col-sm-6 mx-auto mb-4'>
                   <div>
-                    <img src='/assets/img/logo.png' alt='WeHealth Logo' />
+                    <img src='/assets/img/logo.png' alt='spbe Logo' />
                   </div>
                   <div className='logocaption'>
                     <p className='mt-2'>
@@ -74,11 +74,12 @@ function Footer() {
               </div>
             </div>
           </section>
-          <div
-            className='text-center mt-4 container-fluid p-3 fw-light'
-          >
-            &copy; Copyright 2024
-          </div>
+        </div>
+        <hr />
+        <div
+          className='text-center mt-4 container-fluid p-3 fw-light'
+        >
+          <p> &copy; Copyright 2024</p>
         </div>
       </footer>
     </div>
