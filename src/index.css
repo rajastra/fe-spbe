@@ -55,7 +55,7 @@
 header {
   /* background image local files */
   background: url('../assets/img/hero-image.png') no-repeat center center/cover;
-  height: 500px;
+  height: 75vh;
   /* bottom border radius */
   border-bottom-left-radius: 15%;
   border-bottom-right-radius: 15%;

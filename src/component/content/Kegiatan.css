@@ -2,6 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 24px;
 }
 .kegiatan-title-box a {
   text-decoration: none;
@@ -29,4 +30,40 @@
 
 .kegiatan-icon {
   font-size: 50px;
+}
+
+.kegiatan-box {
+  /* height: 560px; */
+  position: relative;
+}
+
+.kegiatan-box img {
+  display: block;
+  transition: filter 0.3s ease;
+}
+
+.kegiatan-box button {
+  display: none;
+  position: absolute;
+  top: 70%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.kegiatan-box:hover img {
+  filter: brightness(50%);
+}
+
+.kegiatan-box:hover button {
+  display: block;
+}
+
+.button-kegiatan {
+  background-color: #15547e;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
