@@ -26,7 +26,7 @@ export const navLinks = [
   },
   {
     id: 6,
-    path: '/cekkesehatan',
+    path: '/kegiatan',
     text: 'KEGIATAN',
   },
 ];

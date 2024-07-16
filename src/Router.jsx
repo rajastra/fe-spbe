@@ -16,6 +16,8 @@ import DetailLayanan from './page/detailLayanan/DetailLayanan';
 import User from './page/user/master/User';
 import DashboardHome from './page/dashboardHome/DashboardHome';
 import RequireLogin from './component/auth/RequireLogin';
+import GaleriPage from "./page/Galeri/GaleriPage";
+import LayoutContent from "./layouts/home/LayoutContent";
 
 const Router = () => {
   return (
@@ -23,6 +25,9 @@ const Router = () => {
       <Route path='/' element={<LayoutHome content={<Homepages />} />} />
       <Route path='/register' element={<Register />} />
       <Route path='/login' element={<LayoutHome content={<Login />} />} />
+      <Route path='/about' element={<LayoutHome content={<AboutUs />} />} />
+      <Route path='/profile' element={<LayoutHome content={<Profile />} />} />
+      <Route path='/kegiatan' element={<LayoutHome content={<LayoutContent title="Galeri"><GaleriPage /></LayoutContent>} />} />
       <Route
         path='/dashboard'
         element={<LayoutDasboard content={<DashboardHome />} />}
@@ -39,8 +44,6 @@ const Router = () => {
         path='/article/:article_id'
         element={<LayoutHome content={<ArticleDetail />} />}
       />
-      <Route path='/about' element={<LayoutHome content={<AboutUs />} />} />
-      <Route path='/profile' element={<LayoutHome content={<Profile />} />} />
       <Route
         path='/detaillayanan'
         element={<LayoutHome content={<DetailLayanan />} />}
