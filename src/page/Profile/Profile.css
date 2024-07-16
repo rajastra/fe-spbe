@@ -1,0 +1,143 @@
+.div-6 {
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+  letter-spacing: -0.52px;
+  align-self: stretch;
+  white-space: nowrap;
+  font: 700 52px/60px Inter, sans-serif;
+}
+@media (max-width: 991px) {
+  .div-6 {
+    max-width: 100%;
+    font-size: 40px;
+    line-height: 51px;
+    white-space: initial;
+  }
+}
+
+.div-9 {
+  width: 150px;
+  padding: 30px 20px 5px;
+}
+
+.img-2 {
+  object-position: center;
+}
+
+.img-3 {
+  aspect-ratio: 2.28;
+  width: 65px;
+}
+
+.div-10 {
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+  letter-spacing: -0.56px;
+  margin: auto 0;
+  font: 600 28px/36px Inter, sans-serif;
+}
+
+.div-11 {
+  color: var(--character-title-85, rgba(0, 0, 0, 0.85));
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 5px;
+  border: 1px solid var(--neutral-5, #d9d9d9);
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.02);
+  background-color: var(--neutral-1, #fff);
+  z-index: 1;
+  margin: auto 0;
+  padding: 5px 0;
+  font: 400 14px/22px Roboto, sans-serif;
+}
+
+.div-14 {
+  color: #000;
+  text-align: center;
+  white-space: nowrap;
+  font: 700 24px/32px Roboto, sans-serif;
+}
+
+.div-15 {
+  color: #000;
+  letter-spacing: -0.012000000178813936px;
+  margin-top: 10px;
+  white-space: nowrap;
+  font: 400 12px/18px Inter, sans-serif;
+}
+
+.div-25 {
+  background-color: #000;
+  align-self: stretch;
+  margin-top: 94px;
+  height: 3px;
+}
+
+.div-26 {
+  align-self: start;
+  display: flex;
+  width: 839px;
+  max-width: 100%;
+  justify-content: space-between;
+  margin: 85px 0 0 15px;
+}
+
+.div-28 {
+  color: var(--character-primary-85, rgba(0, 0, 0, 0.85));
+  white-space: nowrap;
+  font: 400 14px/22px Roboto, sans-serif;
+}
+
+.div-30 {
+  color: var(--character-primary-85, rgba(0, 0, 0, 0.85));
+  white-space: nowrap;
+  font: 400 14px/22px Roboto, sans-serif;
+}
+
+.div-32 {
+  color: var(--character-primary-85, rgba(0, 0, 0, 0.85));
+  white-space: nowrap;
+  font: 400 14px/22px Roboto, sans-serif;
+}
+
+.div-33 {
+  padding-left: 20%;
+}
+
+.div-34 {
+  color: var(--character-primary-85, rgba(0, 0, 0, 0.85));
+  white-space: nowrap;
+  font: 400 14px/22px Roboto, sans-serif;
+}
+
+.div-35 {
+  background-color: #000;
+  align-self: stretch;
+  margin-top: 94px;
+  height: 4px;
+}
+
+.div-36 {
+  display: flex;
+  align-items: first baseline;
+  flex-direction: column;
+}
+
+.div-37 {
+  color: var(--character-primary-85, rgba(0, 0, 0, 0.85));
+  white-space: nowrap;
+  margin: 70px 5px 6px 20px;
+  font: 400 14px/22px Roboto, sans-serif;
+}
+
+.border1 {
+  border-bottom: 1px solid black;
+  width: 20px;
+  box-sizing: border-box;
+  display: block;
+  align-self: first baseline;
+  margin-top: 5px;
+}
+
+input {
+  border: none;
+  outline: none;
+}
