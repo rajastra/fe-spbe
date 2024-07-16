@@ -1,27 +1,24 @@
+import './Footer.css'
+
 function Footer() {
   return (
     <div>
-      <footer className='text-center text-lg-start bg-light text-dark pt-1'>
+      <footer className='footer-container text-lg-start bg-light text-dark pt-1'>
         <div className='container'>
           <section>
-            <div className='container text-center text-md-start mt-5'>
+            <div className='container  text-md-start mt-5'>
               <div className='row mt-3'>
-                <div className='col-md-3 col-lg-4 col-xl-3 mx-auto mb-4'>
+                <div className='col-12 col-sm-6 mx-auto mb-4'>
                   <div>
                     <img src='/assets/img/logo.png' alt='WeHealth Logo' />
                   </div>
                   <div className='logocaption'>
-                    <p className='mt-4'>
-                      Kami berkomitmen untuk membuat pengalaman akses kesehatan
-                      menjadi lebih mudah, lebih personal, dan lebih efisien
+                    <p className='mt-2'>
+                      merupakan platform yang menyediakan informasi dan mengelola data indikator SPBE di wilayah Kota Bandar Lampung.
                     </p>
                   </div>
                   <div className='row1'>
-                    <p className='fw-semibold'>Tetap Terhubung dengan Kami</p>
-                    <div className='d-flex justify-content-between'>
-                      <a href='#'>
-                        <i className='fa-brands fa-instagram fa-lg'></i>
-                      </a>
+                    <div className='footer-brands'>
                       <a href='#'>
                         <i className='fa-brands fa-facebook fa-lg'></i>
                       </a>
@@ -29,86 +26,61 @@ function Footer() {
                         <i className='fa-brands fa-twitter fa-lg'></i>
                       </a>
                       <a href='#'>
-                        <i className='fa-brands fa-youtube fa-lg'></i>
+                        <i className='fa-brands fa-instagram fa-lg'></i>
                       </a>
                       <a href='#'>
-                        <i className='fa-brands fa-tiktok fa-lg'></i>
+                        <i className='fa-brands fa-youtube fa-lg'></i>
                       </a>
                     </div>
                   </div>
                 </div>
-
-                <div className='col=md-3 col-lg-2 col-xl-2 mx-auto mb-4 pt-3'>
-                  <h6 className='text-uppercase fw-bold mb-4'>Lebih dekat</h6>
-                  <p>
-                    <a href='#!' className='text-decoration-none text-muted'>
-                      Tentang Wehealth
-                    </a>
-                  </p>
-                  <p>
-                    <a href='#!' className='text-decoration-none text-muted'>
-                      Kebijakan Privasi
-                    </a>
-                  </p>
-                  <p>
-                    <a href='#!' className='text-decoration-none text-muted'>
-                      Syarat dan Ketentuan
-                    </a>
-                  </p>
-                </div>
-
-                <div className='col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 pt-3'>
-                  <h6 className='text-uppercase fw-bold mb-4'>Layanan Info</h6>
-                  <p>
-                    <a href='#!' className='text-decoration-none text-muted'>
-                      Layanan Medis
-                    </a>
-                  </p>
-                  <p>
-                    <a href='#!' className='text-decoration-none text-muted'>
-                      Info Penyakit
-                    </a>
-                  </p>
-                  <p>
-                    <a href='#!' className='text-decoration-none text-muted'>
-                      Info Obat
-                    </a>
-                  </p>
-                </div>
-
-                <div className='col-md-3 col-lg-2 col-xl-3 mx-auto mb-4 pt-3'>
+                <div className='col-12 col-sm-6 mx-auto pt-3'>
                   <h6 className='text-uppercase fw-bold mb-4'>
-                    Kolaborasi Dengan Kami
+                    KONTAK KAMI
                   </h6>
-                  <p>
-                    <a href='#!' className='text-decoration-none text-muted'>
-                      Tenaga Kesehatan
-                    </a>
-                    <p className='collab'>
-                      Dokter, Apoteker, Psikolog, Psikiater, Bidan, Perawat
-                    </p>
-                  </p>
-                  <p>
-                    <a href='#!' className='text-decoration-none text-muted'>
-                      Fasilitas Kesehatan
-                    </a>
-                    <p className='collab'>
-                      Rumah Sakit, Klinik, Apotek, Laboratorium
-                    </p>
-                  </p>
+                  <div className="footer-contact-container">
+                    <div className="footer-contact-box">
+                      <div className="footer-contact-icon">
+                        <i className='fa-solid fa-map-marker-alt fa-lg'></i>
+                      </div>
+                      <div>
+                        <p className='footer-contact-header'>Alamat</p>
+                        <p className="footer-contact-content">Jl. Dr.Susilo No.2 Bandar Lampung, Kota Bandar Lampung
+                        </p>
+                      </div>
+                    </div>
+                    <div className="footer-contact-box">
+                      <div className="footer-contact-icon">
+                        <i className='fa-solid fa-envelope fa-lg'></i>
+                      </div>
+                      <div>
+                        <p className='footer-contact-header'>Email</p>
+                        <p className="footer-contact-content">Diskominfo@Bandarlampungkota.Go.Id
+                        </p>
+                      </div>
+                    </div>
+                    <div className="footer-contact-box">
+                      <div className="footer-contact-icon">
+                        <i className='fa-solid fa-phone fa-lg'></i>
+                      </div>
+                      <div>
+                        <p className='footer-contact-header'>Telepon</p>
+                        <p className="footer-contact-content">(0721) - 481301
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
+          <div
+            className='text-center mt-4 container-fluid p-3 fw-light'
+          >
+            &copy; Copyright 2024
+          </div>
         </div>
       </footer>
-
-      <div
-        className='text-center container-fluid p-3'
-        style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}
-      >
-        &copy; 2023.<b>WeHealth</b> All Right Reserved.
-      </div>
     </div>
   );
 }
