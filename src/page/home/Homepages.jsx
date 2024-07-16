@@ -4,6 +4,7 @@ import Hero from '../../component/content/Hero';
 import '../../assets/css/style.css';
 import Feature from "../../component/content/Feature";
 import Kegiatan from "../../component/content/Kegiatan";
+import Detail from "../../component/content/Detail";
 
 function Homepages() {
   return (
@@ -12,6 +13,7 @@ function Homepages() {
       <About />
       <Feature />
       <Kegiatan />
+      <Detail />
     </>
   );
 }
