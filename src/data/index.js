@@ -11,21 +11,16 @@ export const navLinks = [
   },
   {
     id: 3,
-    path: '/article',
+    path: '/indikator',
     text: 'INDIKATOR SPBE',
   },
   {
     id: 4,
-    path: '/cekkesehatan',
+    path: '/download',
     text: 'DOWNLOAD',
   },
   {
     id: 5,
-    path: '/cekkesehatan',
-    text: 'DOWNLOAD',
-  },
-  {
-    id: 6,
     path: '/kegiatan',
     text: 'KEGIATAN',
   },

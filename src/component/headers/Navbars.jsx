@@ -14,14 +14,14 @@ const Navbars = () => {
   const [changeColor, setChangeColor] = useState(false);
   const navigate = useNavigate();
 
-  const email = Cookies.get('email');
+  const user = Cookies.get('user') && JSON.parse(Cookies.get('user'));
+  const email = user?.email;
+  const role = user?.role;
+  const isLogin = Cookies.get('token');
 
   const handleLogout = () => {
-    console.log('logout');
     Cookies.remove('token');
-    Cookies.remove('email');
-    Cookies.remove('role');
-    Cookies.remove('id');
+    Cookies.remove('user');
     navigate('/login');
   };
 
@@ -33,12 +33,10 @@ const Navbars = () => {
   };
 
   const itemsUser = [
-    { key: 'profile', label: <span>Profile</span> },
-    Cookies.get('role') === 'admin' && {
+    role === 'admin' && {
       key: 'dashboard',
       label: <span>Dashboard</span>,
     },
-    { key: 'chat', label: <span>Konsultasi</span> },
     { key: 'logout', label: <span>Logout</span> },
   ];
 
@@ -52,17 +50,8 @@ const Navbars = () => {
 
   useEffect(() => {
     changeBackgroundColor();
-
     window.addEventListener('scroll', changeBackgroundColor);
   });
-
-  const [isLogin, setIsLogin] = useState(false);
-
-  useEffect(() => {
-    if (Cookies.get('token')) {
-      setIsLogin(true);
-    }
-  }, []);
 
   return (
     <div>
@@ -80,7 +69,6 @@ const Navbars = () => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='text-center'>
-
               {navLinks.map((link) => {
                 return (
                   <div className='nav-link'
@@ -99,17 +87,41 @@ const Navbars = () => {
                   </div>
                 );
               })}
-              <div className='nav-link'>
-                <NavLink
-                  to='/login'
-                  className={({ isActive, isPending }) =>
-                    isPending ? 'pending' : isActive ? 'active' : ''
-                  }
-                  end
-                >
-                  LOGIN
-                </NavLink>
-              </div>
+              {isLogin ? (
+                <>
+                  <div className='header-container'>
+                    <Dropdown
+                      menu={{
+                        items: itemsUser,
+                        style: { width: '50%' },
+                        onClick: handleClickItemUser,
+                      }}
+                      placement='bottomLeft'
+                      arrow
+                      trigger={['click']}
+                    >
+                      <div className='user-profile'>
+                        <UserOutlined />
+                        <span>{email}</span>
+                      </div>
+                    </Dropdown>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className='nav-link'>
+                    <NavLink
+                      to='/login'
+                      className={({ isActive, isPending }) =>
+                        isPending ? 'pending' : isActive ? 'active' : ''
+                      }
+                      end
+                    >
+                      LOGIN
+                    </NavLink>
+                  </div>
+                </>
+              )}
             </Nav>
 
             {/* <ul className='navbar-nav ms-auto mb-2 mb-lg-0 navbar-user text-center'>
