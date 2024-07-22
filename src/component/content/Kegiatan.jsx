@@ -1,9 +1,23 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import './Kegiatan.css'
+import { useState } from "react";
+import { useGaleriPagination } from "../../hooks/galeri/useGaleriPagination";
 
 const Kegiatan = () => {
+   const navigate = useNavigate();
+   const [dataTable] = useState({
+      current_page: 1,
+      per_page: 1000,
+      total: 0,
+   });
+
+   const { data, isLoading } = useGaleriPagination(
+      dataTable,
+      ''
+   );
+
    const responsive = {
       desktop: {
          breakpoint: { max: 3000, min: 1024 },
@@ -50,22 +64,34 @@ const Kegiatan = () => {
                dotListClass="custom-dot-list-style"
                itemClass="carousel-item-padding-40-px"
             >
-               <div className="kegiatan-box">
-                  <img src="/assets/img/kegiatan.png" alt="" />
-                  <button className="button-kegiatan">Lihat Kegiatan</button>
-               </div>
-               <div className="kegiatan-box">
-                  <img src="/assets/img/kegiatan.png" alt="" />
-                  <button className="button-kegiatan">Lihat Kegiatan</button>
-               </div>
-               <div className="kegiatan-box">
-                  <img src="/assets/img/kegiatan.png" alt="" />
-                  <button className="button-kegiatan">Lihat Kegiatan</button>
-               </div>
-               <div className="kegiatan-box">
-                  <img src="/assets/img/kegiatan.png" alt="" />
-                  <button className="button-kegiatan">Lihat Kegiatan</button>
-               </div>
+               {
+                  isLoading && (
+                     <div className="spinner-border text-primary" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                     </div>
+                  )
+               }
+               {
+                  !isLoading && data?.data?.map((x, i) => {
+                     return (
+                        <div className="kegiatan-box" key={i}>
+                           <img src={x?.gambarGaleri} alt={x?.nama} />
+                           <button className="button-kegiatan"
+                              onClick={() => navigate(`/kegiatan`)}
+                           >Lihat Kegiatan</button>
+                        </div>
+                     )
+                  })
+               }
+               {
+                  !isLoading && data?.data?.length === 0 && (
+                     <div className="kegiatan-box">
+                        <p className="galeri-title">
+                           Data tidak ditemukan
+                        </p>
+                     </div>
+                  )
+               }
             </Carousel>
          </div>
       </div>

@@ -19,7 +19,7 @@ import RequireLogin from './component/auth/RequireLogin';
 import GaleriPage from "./page/Galeri/GaleriPage";
 import LayoutContent from "./layouts/home/LayoutContent";
 import IndikatorPage from "./page/indikator/indikatorPage";
-import RegulasiPage from "./page/regulas/RegulasiPage";
+import RegulasiPage from "./page/regulasi/RegulasiPage";
 
 const Router = () => {
   return (

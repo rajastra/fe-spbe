@@ -19,6 +19,7 @@ const IndikatorPage = () => {
          title: 'No',
          dataIndex: 'index',
          align: 'left',
+         width: 60,
       },
       {
          title: 'Aspek', dataIndex: 'aspek', align: 'left',

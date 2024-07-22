@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useRegulasiPagination } from "../../hooks/regulas/useRegulasiPagination";
+import { useRegulasiPagination } from "../../hooks/regulasi/useRegulasiPagination";
 import { Table } from "antd";
 import './RegulasiPage.css';
 

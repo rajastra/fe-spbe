@@ -29,7 +29,8 @@ function LayoutDasboard(props) {
   const [open, setOpen] = useState(false);
 
   const navigate = useNavigate();
-  const email = Cookies.get('email');
+  const user = Cookies.get('user') && JSON.parse(Cookies.get('user'));
+  const email = user?.email;
 
   const handleClickItemUser = (e) => {
     if (e.key === 'profile') navigate('/profile');
@@ -97,7 +98,7 @@ function LayoutDasboard(props) {
       <div className='menu-mobile'>
         <div onClick={() => navigate('/home')}>
           {/* <img src={LogoFG} alt="logo fg" style={{ width: 22 }} /> */}
-          <h1 style={{ fontSize: '1.4em' }}>We Health</h1>
+          <h1 style={{ fontSize: '1.4em' }}>SPBE</h1>
         </div>
         <MenuOutlined
           style={{ fontSize: '1.3em' }}
@@ -107,7 +108,7 @@ function LayoutDasboard(props) {
       <Sider width={250} trigger={null} collapsible collapsed={collapsed}>
         <div className='logo'>
           {/* <img src={LOGO} alt="fg" /> */}
-          <span>We Health</span>
+          <span>SPBE</span>
         </div>
 
         <div className='sider-menu-wrapper'>
