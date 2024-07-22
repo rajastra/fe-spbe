@@ -1,4 +1,5 @@
 import {
+   DatePicker,
    Form,
    Input,
    message,
@@ -7,9 +8,7 @@ import {
    Upload,
 } from "antd";
 import axios from "axios";
-import Cookies from "js-cookie";
 import { useState } from "react";
-const { TextArea } = Input;
 import propTypes from "prop-types";
 
 const getBase64 = (file) =>
@@ -22,7 +21,7 @@ const getBase64 = (file) =>
       reader.onerror = (error) => reject(error);
    });
 
-const AddArticle = ({ show, onCreate, onCancel }) => {
+const AddGaleri = ({ show, onCreate, onCancel }) => {
    const [form] = Form.useForm();
    const [fileList, setFileList] = useState([]);
    const [loading, setLoading] = useState(false);
@@ -49,27 +48,33 @@ const AddArticle = ({ show, onCreate, onCancel }) => {
       try {
          const values = await form.validateFields();
          setLoading(true);
-
-         const { data } = await axios.post(
-            VITE_BASE_URL + `/api/v1/articles`,
-            {
-               ...values,
-               image: fileList[0],
-            },
-            {
+         // jika ada image upload gambar
+         if (fileList.length > 0) {
+            // upload gambar only url api/v1/image
+            const { data } = await axios.post(VITE_BASE_URL + "/api/v1/image", {
+               image: fileList[0]
+            }, {
                headers: {
-                  Authorization: "Bearer " + Cookies.get("token"),
                   "Content-Type": "multipart/form-data",
                },
-            }
+            });
+            values.gambarGaleri = data?.data?.image?.image;
+         }
+
+         await axios.post(
+            VITE_BASE_URL + `/api/v1/galeris`,
+            {
+               ...values,
+            },
          );
 
-         message.success(data.message);
+         message.success("Kegiatan Berhasil Ditambahkan");
          form.resetFields();
          setFileList([]);
          onCreate();
       } catch (error) {
-         message(error.message || "Fields Error");
+         const msg = error?.response?.data?.message || error.message || "Fields Error";
+         message.error(msg);
       } finally {
          setLoading(false);
       }
@@ -90,37 +95,23 @@ const AddArticle = ({ show, onCreate, onCancel }) => {
          onOk={handleSubmit}
          onCancel={handleCancelModal}
          okButtonProps={{ loading }}
-         title="Tambah Artikel"
+         title="Tambah Kegiatan"
       >
          <Form form={form} layout="vertical" className="full-form">
             <div className="first-form">
                <Form.Item
-                  name="title"
+                  name="nama"
                   label="Judul"
                   rules={[{ required: true, message: "Harap diisi" }]}
                >
                   <Input />
                </Form.Item>
                <Form.Item
-                  name="description"
-                  label="Deskripsi"
+                  name="tanggal"
+                  label="Tanggal"
                   rules={[{ required: true, message: "Harap diisi" }]}
                >
-                  <Input />
-               </Form.Item>
-               <Form.Item
-                  name="content"
-                  label="Isi"
-                  rules={[{ required: true, message: "Harap diisi" }]}
-               >
-                  <TextArea />
-               </Form.Item>
-               <Form.Item
-                  name="category"
-                  label="Kategori"
-                  rules={[{ required: true, message: "Harap diisi" }]}
-               >
-                  <Input />
+                  <DatePicker />
                </Form.Item>
                <Form.Item label="Gambar">
                   <Upload
@@ -170,11 +161,11 @@ const AddArticle = ({ show, onCreate, onCancel }) => {
    );
 };
 
-AddArticle.propTypes = {
+AddGaleri.propTypes = {
    show: propTypes.bool.isRequired,
    onCreate: propTypes.func.isRequired,
    onCancel: propTypes.func.isRequired,
 };
 
 
-export default AddArticle;
+export default AddGaleri;

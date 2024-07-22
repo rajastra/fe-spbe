@@ -9,7 +9,8 @@ export const DeleteApi = async ({ url, dataId, refetch }) => {
     const { data } = await axios.delete(VITE_BASE_URL + url + dataId, {
       headers: { Authorization: 'Bearer ' + Cookies.get('token') },
     });
-    message.success(data.message, 2);
+    const msg = data.message || 'Data berhasil dihapus';
+    message.success(msg, 2);
     refetch && refetch();
   } catch (error) {
     message.error(`Gagal menghapus data ( ${error.message} )`);

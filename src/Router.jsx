@@ -3,9 +3,7 @@ import Homepages from './page/home/Homepages';
 import Register from './page/register/Register';
 import Login from './page/login/Login';
 import LayoutDasboard from './layouts/dashboard/LayoutDasboard';
-import Article from './page/article/master/Article';
-import DetailArticle from './page/article/detail/DetailArticle';
-import ArticleDetail from './component/article/ArticleDetail';
+import Galeri from './page/article/master/Galeri';
 import LayoutHome from './layouts/home/LayoutHome';
 import Dokter from './page/dokter/master/Dokter';
 import DetailDokter from './page/dokter/detail/DetailDokter';
@@ -37,16 +35,8 @@ const Router = () => {
         element={<LayoutDasboard content={<DashboardHome />} />}
       />
       <Route
-        path='/dashboard/article'
-        element={<LayoutDasboard content={<Article />} />}
-      />
-      <Route
-        path='/dashboard/article/:article_id'
-        element={<LayoutDasboard content={<DetailArticle />} />}
-      />
-      <Route
-        path='/article/:article_id'
-        element={<LayoutHome content={<ArticleDetail />} />}
+        path='/dashboard/galeri'
+        element={<LayoutDasboard content={<Galeri />} />}
       />
       <Route
         path='/detaillayanan'

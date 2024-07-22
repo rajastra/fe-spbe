@@ -11,7 +11,7 @@ export const useGaleriPagination = (dataTable, keyword) => {
     ],
     () =>
       getGaleri(
-        `/api/v1/galeris?page=${dataTable.current_page}&limit=${dataTable.per_page}&search=${keyword}`
+        `/api/v1/galeris?page=${dataTable.current_page}&limit=${dataTable.per_page}&keyword=${keyword}`
       )
   );
 };

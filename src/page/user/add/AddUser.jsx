@@ -7,7 +7,6 @@ import {
 } from "antd";
 import axios from "axios";
 import { useState } from "react";
-const { TextArea } = Input;
 import propTypes from "prop-types";
 import { userRoles } from "../constant";
 
@@ -24,10 +23,10 @@ const AddUser = ({ show, onCreate, onCancel }) => {
          const values = await form.validateFields();
          setLoading(true);
 
-         const { data } = await axios.post(
-            VITE_BASE_URL + `/api/v1/auth/register`, values,
+         await axios.post(
+            VITE_BASE_URL + `/api/v1/users/signup`, values,
          );
-         message.success(data.message);
+         message.success("User Berhasil Dibuat");
          form.resetFields();
          onCreate();
       } catch (error) {
@@ -41,8 +40,6 @@ const AddUser = ({ show, onCreate, onCancel }) => {
       form.resetFields();
       onCancel();
    };
-
-
 
    return (
       <Modal
@@ -71,30 +68,11 @@ const AddUser = ({ show, onCreate, onCancel }) => {
                   <Input.Password />
                </Form.Item>
                <Form.Item
-                  name="first_name"
-                  label="First Name"
+                  name="name"
+                  label="Nama"
                   rules={[{ required: true, message: "Harap diisi" }]}
                >
                   <Input />
-               </Form.Item>
-               <Form.Item
-                  name="last_name"
-                  label="Last Name"
-                  rules={[{ required: true, message: "Harap diisi" }]}
-               >
-                  <Input />
-               </Form.Item>
-               <Form.Item
-                  name="phone"
-                  label="No Telepon"
-               >
-                  <Input />
-               </Form.Item>
-               <Form.Item
-                  name="address"
-                  label="Alamat"
-               >
-                  <TextArea />
                </Form.Item>
                <Form.Item
                   name="role"

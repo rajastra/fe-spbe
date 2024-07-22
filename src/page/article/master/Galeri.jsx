@@ -1,30 +1,25 @@
-import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table } from "antd";
+import { Button, Space, Table } from "antd";
 import { Popconfirm, Tag } from "antd";
 import { useCallback, useState } from "react";
-import { useArticlePagination } from "../../../hooks/useArticlePagination";
-import "./Article.css";
+import "./Galeri.css";
 import { DeleteApi } from "../../../services/DeleteApi";
-import AddArticle from "../add/AddArticle";
-import EditArticle from "../edit/EditArticle";
-import { useNavigate } from "react-router-dom";
+import AddGaleri from "../add/AddGaleri";
+import EditArticle from "../edit/EditGaleri";
+import { useGaleriPagination } from "../../../hooks/galeri/useGaleriPagination";
 
 const Article = () => {
   const [dataId, setDataId] = useState("");
   const [showAddArticle, setShowAddArticle] = useState(false);
   const [showEditArticle, setShowEditArticle] = useState(false);
-  const [keyword, setKeyword] = useState("");
   const [dataTable, setDataTable] = useState({
     current_page: 1,
     per_page: 15,
     total: 0,
   });
 
-  const navigate = useNavigate();
-
-  const { data, isLoading, isFetching, refetch } = useArticlePagination(
+  const { data, isLoading, isFetching, refetch } = useGaleriPagination(
     dataTable,
-    keyword
+    ''
   );
 
   const onCreate = useCallback(() => {
@@ -42,9 +37,6 @@ const Article = () => {
     setShowEditArticle(false);
   };
 
-  const handleChange = (param) => {
-    setKeyword(param.target.value);
-  };
 
   const columns = [
     {
@@ -53,26 +45,38 @@ const Article = () => {
       align: "left",
       width: window.innerWidth > 800 ? 70 : 50,
     },
-    { title: "Judul", dataIndex: "title", align: "left" },
-    { title: "Deskripsi", dataIndex: "description", align: "left" },
-    { title: "Kategori", dataIndex: "category", align: "left" },
+    { title: "Judul", dataIndex: "nama", align: "left" },
+    {
+      title: "Tanggal", dataIndex: "tanggal", align: "left",
+      render: (tanggal) => {
+        // format date tanggal bulan tahun
+        const date = new Date(tanggal);
+        const day = date.getDate();
+        const month = date.getMonth() + 1;
+        const year = date.getFullYear();
+        return `${day}/${month}/${year}`;
+      }
+    },
+    {
+      title: "Gambar", dataIndex: "gambarGaleri", align: "left",
+      render: (gambarGaleri) => {
+        return (
+          <img
+            src={gambarGaleri}
+            alt="gambarGaleri"
+            style={{ width: "100px", height: "100px" }}
+          />
+        );
+      }
+    },
     {
       title: "Aksi",
-      dataIndex: "_id",
+      dataIndex: "id",
       align: "center",
       width: window.innerWidth > 800 ? 200 : 150,
       render: (id) => {
         return (
           <>
-            <Tag
-              color="blue"
-              style={{ cursor: "pointer" }}
-              onClick={() => {
-                navigate(`/dashboard/article/${id}`);
-              }}
-            >
-              Detail
-            </Tag>
             <Tag
               color="orange"
               style={{ cursor: "pointer" }}
@@ -90,7 +94,7 @@ const Article = () => {
               onConfirm={() => {
                 const dataId = id;
                 DeleteApi({
-                  url: "/api/v1/articles/",
+                  url: "/api/v1/galeris/",
                   dataId,
                   refetch,
                 });
@@ -134,20 +138,12 @@ const Article = () => {
   return (
     <>
       <div className="table-header">
-        <h1>Daftar Article</h1>
+        <h1>Daftar Kegiatan</h1>
         <Space>
           <Button type="primary" onClick={() => setShowAddArticle(true)}>
-            Tambah Article
+            Tambah Kegiatan
           </Button>
         </Space>
-      </div>
-      <div className="search-wrapper filter-wrapper">
-        <Input
-          prefix={<SearchOutlined />}
-          value={keyword}
-          onChange={handleChange}
-          placeholder="Cari Artikel berdasarkan Judul atau kategori"
-        />
       </div>
       <Table
         size="small"
@@ -161,7 +157,7 @@ const Article = () => {
           x: 800,
         }}
       />
-      <AddArticle
+      <AddGaleri
         onCreate={onCreate}
         onCancel={onCancel}
         show={showAddArticle}

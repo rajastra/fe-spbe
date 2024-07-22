@@ -1,5 +1,4 @@
-import { SearchOutlined } from "@ant-design/icons";
-import { Button, Input, Space, Table } from "antd";
+import { Button, Space, Table } from "antd";
 import { Popconfirm, Tag } from "antd";
 import { useCallback, useState } from "react";
 import './User.css'
@@ -13,7 +12,6 @@ const User = () => {
    const [dataId, setDataId] = useState("");
    const [showAddUser, setShowAddUser] = useState(false);
    const [showEditUser, setShowEditUser] = useState(false);
-   const [keyword, setKeyword] = useState("");
    const [dataTable, setDataTable] = useState({
       current_page: 1,
       per_page: 15,
@@ -22,7 +20,7 @@ const User = () => {
    const [showResetPassword, setShowResetPassword] = useState(false);
    const { data, isLoading, isFetching, refetch } = useUserPagination(
       dataTable,
-      keyword
+      ''
    );
 
 
@@ -48,11 +46,6 @@ const User = () => {
       setDataId("");
    };
 
-   const handleChange = (param) => {
-      setKeyword(param.target.value);
-   };
-
-
    const columns = [
       {
          title: "No",
@@ -66,14 +59,8 @@ const User = () => {
          align: "left",
       },
       {
-         title: "First Name",
-         dataIndex: "first_name",
-         align: "left",
-         width: window.innerWidth > 800 ? 200 : 150,
-      },
-      {
-         title: "Last Name",
-         dataIndex: "last_name",
+         title: "Nama",
+         dataIndex: "name",
          align: "left",
          width: window.innerWidth > 800 ? 200 : 150,
       },
@@ -84,23 +71,12 @@ const User = () => {
       },
       {
          title: "Aksi",
-         dataIndex: "_id",
+         dataIndex: "id",
          align: "center",
          width: window.innerWidth > 800 ? 300 : 200,
          render: (id) => {
             return (
                <>
-                  {/* <Tag
-                     color="blue"
-                     style={
-                        { cursor: "pointer" }
-                     }
-                     onClick={() => {
-                        navigate(`/dashboard/article/${id}`);
-                     }}
-                  >
-                     Detail
-                  </Tag> */}
                   <Tag
                      color="orange"
                      style={
@@ -191,14 +167,6 @@ const User = () => {
                   Tambah User
                </Button>
             </Space>
-         </div>
-         <div className="search-wrapper filter-wrapper">
-            <Input
-               prefix={<SearchOutlined />}
-               value={keyword}
-               onChange={handleChange}
-               placeholder="Cari Artikel berdasarkan Judul atau kategori"
-            />
          </div>
          <Table
             size="small"

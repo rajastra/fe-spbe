@@ -5,7 +5,9 @@ import {
   LogoutOutlined,
   MenuOutlined,
   UserOutlined,
-  FileOutlined,
+  PictureOutlined,
+  BarChartOutlined,
+  FileTextOutlined
 } from '@ant-design/icons';
 import { Dropdown, Layout, Drawer } from 'antd';
 // import { default as LOGO, default as LogoFG } from "assets/img/logoFG.png";
@@ -38,15 +40,15 @@ function LayoutDasboard(props) {
   };
 
   const itemsUser = [
-    { key: 'profile', label: <span>Profile</span> },
     { key: 'logout', label: <span>Logout</span> },
   ];
 
   const items = [
     { key: 'home', icon: <AppstoreFilled />, label: 'Home' },
     { key: 'mnuDashboard', icon: <DashboardOutlined />, label: 'Dashboard' },
-    { key: 'mnuArticle', icon: <FileOutlined />, label: 'Article' },
-    { key: 'mnuDokter', icon: <UserOutlined />, label: 'Dokter' },
+    { key: 'mnuGaleri', icon: <PictureOutlined />, label: 'Galeri Kegiatan' },
+    { key: 'mnuIndikator', icon: <BarChartOutlined />, label: 'Indikator' },
+    { key: 'mnuRegulasi', icon: <FileTextOutlined />, label: 'Regulasi' },
     { key: 'mnuUser', icon: <UserOutlined />, label: 'User' },
   ];
 
@@ -55,11 +57,8 @@ function LayoutDasboard(props) {
   ];
 
   const handleLogout = () => {
-    console.log('logout');
+    Cookies.remove('user');
     Cookies.remove('token');
-    Cookies.remove('email');
-    Cookies.remove('role');
-    Cookies.remove('id');
     navigate('/login');
   };
 
