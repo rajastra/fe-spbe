@@ -18,6 +18,8 @@ import DashboardHome from './page/dashboardHome/DashboardHome';
 import RequireLogin from './component/auth/RequireLogin';
 import GaleriPage from "./page/Galeri/GaleriPage";
 import LayoutContent from "./layouts/home/LayoutContent";
+import IndikatorPage from "./page/indikator/indikatorPage";
+import RegulasiPage from "./page/regulas/RegulasiPage";
 
 const Router = () => {
   return (
@@ -28,6 +30,8 @@ const Router = () => {
       <Route path='/about' element={<LayoutHome content={<AboutUs />} />} />
       <Route path='/profile' element={<LayoutHome content={<Profile />} />} />
       <Route path='/kegiatan' element={<LayoutHome content={<LayoutContent title="Galeri"><GaleriPage /></LayoutContent>} />} />
+      <Route path='/indikator' element={<LayoutHome content={<LayoutContent title="Indikator"><IndikatorPage /></LayoutContent>} />} />
+      <Route path='/regulasi' element={<LayoutHome content={<LayoutContent title="Regulasi"><RegulasiPage /></LayoutContent>} />} />
       <Route
         path='/dashboard'
         element={<LayoutDasboard content={<DashboardHome />} />}

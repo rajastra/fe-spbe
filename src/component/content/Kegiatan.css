@@ -33,7 +33,6 @@
 }
 
 .kegiatan-box {
-  /* height: 560px; */
   position: relative;
 }
 
@@ -46,7 +45,7 @@
   display: none;
   position: absolute;
   top: 70%;
-  left: 40%;
+  left: 35%;
   transform: translate(-50%, -50%);
   z-index: 1;
 }
@@ -61,6 +60,7 @@
 
 .button-kegiatan {
   background-color: #15547e;
+  width: 50%;
   color: #fff;
   padding: 10px 20px;
   border: none;
