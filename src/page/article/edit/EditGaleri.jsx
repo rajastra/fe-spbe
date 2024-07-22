@@ -1,11 +1,14 @@
-import { Form, Input, message, Modal, Skeleton, Upload } from 'antd';
+import { DatePicker, Form, Input, message, Modal, Skeleton, Upload } from 'antd';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
-const { TextArea } = Input;
 import propTypes from 'prop-types';
-import { useArticleDetail } from '../../../hooks/useArticleDetail';
 import { PlusOutlined } from '@ant-design/icons';
+import { useGaleriDetail } from "../../../hooks/galeri/useGaleriDetail";
+import dayjs from "dayjs";
+
+const format = 'MM-DD-YYYY';
+
 
 const EditArticle = ({ id, onUpdate, onCancel, show }) => {
   const [form] = Form.useForm();
@@ -14,7 +17,7 @@ const EditArticle = ({ id, onUpdate, onCancel, show }) => {
   const [newData, setNewData] = useState({});
   const { VITE_BASE_URL } = import.meta.env;
 
-  const { data, refetch, isLoading } = useArticleDetail(id, false);
+  const { data, refetch, isLoading } = useGaleriDetail(id, false);
 
   const handleChange = ({ fileList: newFileList }) => {
     setFileList(newFileList)
@@ -50,19 +53,17 @@ const EditArticle = ({ id, onUpdate, onCancel, show }) => {
   useEffect(() => {
     if (data) {
       form.setFieldsValue({
-        title: data?.data?.article?.title,
-        content: data?.data?.article?.content,
-        category: data?.data?.article?.category,
-        description: data?.data?.article?.description,
+        nama: data?.data?.nama,
+        tanggal: dayjs(data?.data?.tanggal),
       });
-      if (data?.data?.article?.image) {
+      if (data?.data?.gambarGaleri) {
         setFileList([
           {
             uid: '-1',
             name: 'image.png',
             status: 'done',
-            url: data?.data?.article?.image,
-            thumbUrl: data?.data?.article?.image
+            url: data?.data?.gambarGaleri,
+            thumbUrl: data?.data?.gambarGaleri
           },
         ]);
       }
@@ -78,21 +79,33 @@ const EditArticle = ({ id, onUpdate, onCancel, show }) => {
         message.error('Nothing has changed');
         return;
       }
+      // jika ada gambar image upload gambar
+      if (fileList.length > 0) {
+        // upload gambar only url api/v1/image
+        const { data } = await axios.post(VITE_BASE_URL + "/api/v1/image", {
+          image: fileList[0].originFileObj
+        }, {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        });
+        newData.gambarGaleri = data?.data?.image?.image;
+        newData.image = undefined;
+      }
 
-      const { data } = await axios.patch(
-        VITE_BASE_URL + `/api/v1/articles/${id}`,
+      await axios.patch(
+        VITE_BASE_URL + `/api/v1/galeris/${id}`,
         {
           ...newData,
         },
         {
           headers: {
-            Authorization: 'Bearer ' + Cookies.get('token'),
-            'Content-Type': 'multipart/form-data',
+            Authorization: 'Bearer ' + Cookies.get('token')
           },
         }
       );
 
-      message.success(data.message);
+      message.success("Update Kegiatan Berhasil");
       form.resetFields();
       setFileList([]);
       onUpdate();
@@ -124,34 +137,24 @@ const EditArticle = ({ id, onUpdate, onCancel, show }) => {
           <Form form={form} layout='vertical' className='full-form'>
             <div className='first-form'>
               <Form.Item
-                name='title'
+                name='nama'
                 label='Judul'
                 rules={[{ required: true, message: 'Harap diisi' }]}
               >
                 <Input onChange={({ target: { value } }) => (newData["title"] = value)} />
               </Form.Item>
               <Form.Item
-                name='description'
-                label='Deskripsi'
+                name='tanggal'
+                label='Tanggal'
                 rules={[{ required: true, message: 'Harap diisi' }]}
               >
-                <Input onChange={({ target: { value } }) => (newData["description"] = value)} />
+                <DatePicker format={format}
+                  onChange={(e) => {
+                    // change this to dateTime format sequelize
+                    newData.tanggal = e.format(format);
+                  }} />
               </Form.Item>
-              <Form.Item
-                name='content'
-                label='Isi'
-                rules={[{ required: true, message: 'Harap diisi' }]}
-              >
-                <TextArea onChange={({ target: { value } }) => (newData["content"] = value)} />
-              </Form.Item>
-              <Form.Item
-                name='category'
-                label='Kategori'
-                rules={[{ required: true, message: 'Harap diisi' }]}
-              >
-                <Input onChange={({ target: { value } }) => (newData["category"] = value)} />
-              </Form.Item>
-              <Form.Item name="image" label="Gambar"
+              <Form.Item name="gambarGaleri" label="Gambar"
               >
                 <Upload
                   name="avatar"
