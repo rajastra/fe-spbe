@@ -19,6 +19,7 @@ import LayoutContent from "./layouts/home/LayoutContent";
 import IndikatorPage from "./page/indikator/indikatorPage";
 import RegulasiPage from "./page/regulasi/RegulasiPage";
 import Indikator from "./page/IndikatorDashboardTest/master/Indikator";
+import Regulasi from "./page/RegulasiDashboard/master/Regulasi";
 
 const Router = () => {
   return (
@@ -42,6 +43,10 @@ const Router = () => {
       <Route
         path='/dashboard/indikator'
         element={<LayoutDasboard content={<Indikator />} />}
+      />
+      <Route
+        path='/dashboard/regulasi'
+        element={<LayoutDasboard content={<Regulasi />} />}
       />
       <Route
         path='/detaillayanan'
