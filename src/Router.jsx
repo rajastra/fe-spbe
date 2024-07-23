@@ -3,7 +3,7 @@ import Homepages from './page/home/Homepages';
 import Register from './page/register/Register';
 import Login from './page/login/Login';
 import LayoutDasboard from './layouts/dashboard/LayoutDasboard';
-import Galeri from './page/article/master/Galeri';
+import Galeri from './page/GaleriDashboard/master/Galeri';
 import LayoutHome from './layouts/home/LayoutHome';
 import Dokter from './page/dokter/master/Dokter';
 import DetailDokter from './page/dokter/detail/DetailDokter';
@@ -18,6 +18,7 @@ import GaleriPage from "./page/Galeri/GaleriPage";
 import LayoutContent from "./layouts/home/LayoutContent";
 import IndikatorPage from "./page/indikator/indikatorPage";
 import RegulasiPage from "./page/regulasi/RegulasiPage";
+import Indikator from "./page/IndikatorDashboardTest/master/Indikator";
 
 const Router = () => {
   return (
@@ -37,6 +38,10 @@ const Router = () => {
       <Route
         path='/dashboard/galeri'
         element={<LayoutDasboard content={<Galeri />} />}
+      />
+      <Route
+        path='/dashboard/indikator'
+        element={<LayoutDasboard content={<Indikator />} />}
       />
       <Route
         path='/detaillayanan'
