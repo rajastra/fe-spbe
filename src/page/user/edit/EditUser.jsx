@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import { userRoles } from "../constant";
-import { useUserDetail } from "../../../hooks/useUserDetail";
+import { useUserDetail } from "../../../hooks/user/useUserDetail";
 
 const EditUser = ({ id, onUpdate, onCancel, show }) => {
   const [form] = Form.useForm();

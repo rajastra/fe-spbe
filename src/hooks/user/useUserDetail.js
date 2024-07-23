@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { getDetailUser } from '../services/User';
+import { getDetailUser } from '../../services/User';
 
 export const useUserDetail = (id, enabled) => {
   return useQuery(

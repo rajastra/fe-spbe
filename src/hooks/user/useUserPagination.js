@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { getUser } from '../services/User';
+import { getUser } from '../../services/User';
 
 export const useUserPagination = (dataTable, keyword) => {
   return useQuery(

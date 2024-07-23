@@ -5,7 +5,7 @@ import './User.css'
 import { DeleteApi } from "../../../services/DeleteApi";
 import AddUser from "../add/AddUser";
 import EditUser from "../edit/EditUser";
-import { useUserPagination } from "../../../hooks/useUserPagination";
+import { useUserPagination } from "../../../hooks/user/useUserPagination";
 import ResetPasswordUser from "../reset/ResetPasswordUser";
 
 const User = () => {
