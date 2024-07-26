@@ -22,7 +22,7 @@ const Navbars = () => {
   const handleLogout = () => {
     Cookies.remove('token');
     Cookies.remove('user');
-    navigate('/login');
+    navigate('/ghjkl');
   };
 
   const handleClickItemUser = (e) => {
@@ -112,51 +112,6 @@ const Navbars = () => {
                 </>
               )}
             </Nav>
-
-            {/* <ul className='navbar-nav ms-auto mb-2 mb-lg-0 navbar-user text-center'>
-              {isLogin ? (
-                <>
-                  <div className='header-container'>
-                    <Dropdown
-                      menu={{
-                        items: itemsUser,
-                        style: { width: '50%' },
-                        onClick: handleClickItemUser,
-                      }}
-                      placement='bottomLeft'
-                      arrow
-                      trigger={['click']}
-                    >
-                      <div className='user-profile'>
-                        <UserOutlined />
-                        <span>{email}</span>
-                      </div>
-                    </Dropdown>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <li className='nav-item'>
-                    <NavLink
-                      to='/login'
-                      className='btn btn-outline-primary rounded-3 me-2'
-                      activeClassName='active'
-                    >
-                      Login
-                    </NavLink>
-                  </li>
-                  <li className='nav-item-2'>
-                    <NavLink
-                      to='/register'
-                      className='btn btn-primary rounded-3'
-                      activeClassName='active'
-                    >
-                      Sign Up
-                    </NavLink>
-                  </li>
-                </>
-              )}
-            </ul> */}
           </Navbar.Collapse>
         </Container>
       </Navbar>

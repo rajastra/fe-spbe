@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 
 const RequireLogin = ({ children }) => {
   if (!Cookies.get('token')) {
-    return <Navigate to={'/login'} />;
+    return <Navigate to={'/ghjkl'} />;
   }
   return <>{children}</>;
 };

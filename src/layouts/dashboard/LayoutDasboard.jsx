@@ -59,7 +59,7 @@ function LayoutDasboard(props) {
   const handleLogout = () => {
     Cookies.remove('user');
     Cookies.remove('token');
-    navigate('/login');
+    navigate('/ghjkl');
   };
 
   const handleClickMenu = (param) => {
