@@ -109,17 +109,6 @@ const Navbars = () => {
                 </>
               ) : (
                 <>
-                  <div className='nav-link'>
-                    <NavLink
-                      to='/login'
-                      className={({ isActive, isPending }) =>
-                        isPending ? 'pending' : isActive ? 'active' : ''
-                      }
-                      end
-                    >
-                      LOGIN
-                    </NavLink>
-                  </div>
                 </>
               )}
             </Nav>

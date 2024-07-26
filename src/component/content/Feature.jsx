@@ -18,8 +18,7 @@ const Feature = () => {
                         <div className='feature-text'>
                            <h2 className='feature-header'>Regulasi</h2>
                            <p className='feature-description'>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elementum euismod nibh, vitae dictum ligula pulvinar non.
-                           </p>
+                           Regulasi mengatur tata kelola dan manajemen SPBE secara nasional untuk meningkatkan keterpaduan dan efisiensi sistem pemerintahan berbasis elektronik.                           </p>
                         </div>
                         <hr className="feature-line" />
                      </div>
@@ -31,8 +30,7 @@ const Feature = () => {
                         <div className='feature-text'>
                            <h2 className='feature-header'>INDIKATOR SPBE</h2>
                            <p className='feature-description'>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elementum euismod nibh, vitae dictum ligula pulvinar non.
-                           </p>
+                           Indikator SPBE adalah parameter untuk menilai keberhasilan implementasi SPBE, mengukur efektivitas, efisiensi, dan kualitasnya.                           </p>
                         </div>
                         <hr className="feature-line" />
                      </div>
@@ -44,8 +42,7 @@ const Feature = () => {
                         <div className='feature-text'>
                            <h2 className='feature-header'>HASIL SPBE</h2>
                            <p className='feature-description'>
-                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque elementum euismod nibh, vitae dictum ligula pulvinar non.
-                           </p>
+                           Implementasi SPBE diharapkan dapat meningkatkan layanan publik, transparansi, akuntabilitas, dan mengurangi penyalahgunaan wewenang.                           </p>
                         </div>
                         <hr className="feature-line" />
                      </div>

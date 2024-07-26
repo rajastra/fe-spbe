@@ -7,7 +7,9 @@ const Detail = () => {
          <div className="container detail-home-box">
             <h2>Aplikasi Evaluasi Sistem Pemerintahan Berbasis Elektronik</h2>
             <p>Kementerian Pendayagunaan Aparatur Negara dan Reformasi Birokrasi</p>
-            <button>Selengkapnya</button>
+            <a href="https://tauval.spbe.go.id/" target="_blank" rel="noopener noreferrer">
+               <button>Selengkapnya</button>
+            </a>
          </div>
       </div>
    )

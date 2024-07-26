@@ -6,7 +6,7 @@ function Footer() {
       <footer className='footer-container text-lg-start bg-light text-dark pt-1'>
         <div className='container'>
           <section>
-            <div className='container  text-md-start mt-5'>
+            <div className='container text-md-start mt-5'>
               <div className='row mt-3'>
                 <div className='col-12 col-sm-6 mx-auto mb-4'>
                   <div>
@@ -19,16 +19,16 @@ function Footer() {
                   </div>
                   <div className='row1'>
                     <div className='footer-brands'>
-                      <a href='#'>
+                      <a href='https://www.facebook.com/diskominfobandarlampung' target="_blank" rel="noopener noreferrer">
                         <i className='fa-brands fa-facebook fa-lg'></i>
                       </a>
-                      <a href='#'>
+                      <a href='https://twitter.com/kominfoblampung' target="_blank" rel="noopener noreferrer">
                         <i className='fa-brands fa-twitter fa-lg'></i>
                       </a>
-                      <a href='#'>
+                      <a href='https://instagram.com/kominfobandarlampung?igshid=MDM4ZDc5MmU=' target="_blank" rel="noopener noreferrer">
                         <i className='fa-brands fa-instagram fa-lg'></i>
                       </a>
-                      <a href='#'>
+                      <a href='https://www.youtube.com/@kominfobandarlampung' target="_blank" rel="noopener noreferrer">
                         <i className='fa-brands fa-youtube fa-lg'></i>
                       </a>
                     </div>
@@ -45,8 +45,7 @@ function Footer() {
                       </div>
                       <div>
                         <p className='footer-contact-header'>Alamat</p>
-                        <p className="footer-contact-content">Jl. Dr.Susilo No.2 Bandar Lampung, Kota Bandar Lampung
-                        </p>
+                        <p className="footer-contact-content">Jl. Dr.Susilo No.2 Bandar Lampung, Kota Bandar Lampung</p>
                       </div>
                     </div>
                     <div className="footer-contact-box">
@@ -55,7 +54,8 @@ function Footer() {
                       </div>
                       <div>
                         <p className='footer-contact-header'>Email</p>
-                        <p className="footer-contact-content">Diskominfo@Bandarlampungkota.Go.Id
+                        <p className="footer-contact-content">
+                          <a href="mailto:diskominfo@bandarlampungkota.go.id" className="email-link">diskominfo@bandarlampungkota.go.id</a>
                         </p>
                       </div>
                     </div>
@@ -65,8 +65,7 @@ function Footer() {
                       </div>
                       <div>
                         <p className='footer-contact-header'>Telepon</p>
-                        <p className="footer-contact-content">(0721) - 481301
-                        </p>
+                        <p className="footer-contact-content">(0721) - 481301</p>
                       </div>
                     </div>
                   </div>
@@ -76,14 +75,12 @@ function Footer() {
           </section>
         </div>
         <hr />
-        <div
-          className='text-center mt-4 container-fluid p-3 fw-light'
-        >
+        <div className='text-center mt-4 container-fluid p-3 fw-light'>
           <p> &copy; Copyright 2024</p>
         </div>
       </footer>
     </div>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

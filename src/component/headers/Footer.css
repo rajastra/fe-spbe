@@ -1,15 +1,24 @@
 .footer-container {
   position: relative;
-  background: url('../assets/img/mainfooter.png') no-repeat center center/cover;
+  background: url('../assets/img/mainfooter.jpg') no-repeat center center/cover;
   margin-top: 64px;
 }
-
 .footer-container h6 {
   color: white;
 }
 
 .footer-container p {
   color: white;
+}
+
+.email-link {
+  color: white;
+  text-decoration: none;
+}
+
+.email-link:hover {
+  color: white;
+  text-decoration: underline;
 }
 
 .footer-container::before {
